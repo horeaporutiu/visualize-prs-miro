@@ -10,15 +10,18 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Miro MCP Visualization
-        id: miro
-        uses: miroapp/miro-mcp-action@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          miro_token: ${{ secrets.MIRO_API_TOKEN }}
-          command: "code_explain_on_board"
-          board_name: "PR Review: ${{ github.event.pull_request.title }}"
-          # The MCP tool analyzes the workspace and creates the diagram
-          github_url: ${{ github.event.pull_request.html_url }}
+          node-version: '20'
+
+      - name: Generate Miro Architecture Diagram
+        id: miro
+        env:
+          MIRO_API_TOKEN: ${{ secrets.MIRO_API_TOKEN }}
+          BOARD_NAME: "PR Review: ${{ github.event.pull_request.title }}"
+          GITHUB_URL: ${{ github.event.pull_request.html_url }}
+        run: node scripts/visualize.mjs
 
       - name: Post Board Link to PR
         uses: mshick/add-pr-comment@v2
