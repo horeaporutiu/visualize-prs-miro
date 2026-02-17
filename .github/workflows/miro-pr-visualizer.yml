@@ -1,0 +1,29 @@
+name: Miro PR Visualizer
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  visualize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Miro MCP Visualization
+        id: miro
+        uses: miroapp/miro-mcp-action@v1
+        with:
+          miro_token: ${{ secrets.MIRO_API_TOKEN }}
+          command: "code_explain_on_board"
+          board_name: "PR Review: ${{ github.event.pull_request.title }}"
+          # The MCP tool analyzes the workspace and creates the diagram
+          github_url: ${{ github.event.pull_request.html_url }}
+
+      - name: Post Board Link to PR
+        uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            ### 🏗 Interactive Architectural Review
+            A living diagram for this PR has been generated on Miro.
+            [View Interactive Architectural Impact on Miro](${{ steps.miro.outputs.board_url }})
