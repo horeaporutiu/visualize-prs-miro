@@ -2,6 +2,44 @@
 
 A demo Node.js application that automatically generates **living architecture diagrams** on every Pull Request using Miro's **Model Context Protocol (MCP)** server.
 
+---
+
+## Architecture Diagram
+
+> **Live on Miro** — [Open full board](https://miro.com/app/board/uXjVG-jtQzY=/)
+
+<a href="https://miro.com/app/board/uXjVG-jtQzY=/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://miro.com/app/live-embed/uXjVG-jtQzY=/?autoplay=yep">
+    <img src="https://miro.com/app/live-embed/uXjVG-jtQzY=/?autoplay=yep" alt="Architecture Diagram on Miro" width="100%">
+  </picture>
+</a>
+
+<details>
+<summary><strong>Can't see the board? Click here for the interactive embed.</strong></summary>
+<br>
+
+To view the interactive Miro board directly, visit:
+**https://miro.com/app/board/uXjVG-jtQzY=/**
+
+Or paste this iframe into any HTML page:
+
+```html
+<iframe
+  width="768"
+  height="432"
+  src="https://miro.com/app/live-embed/uXjVG-jtQzY=/?moveToViewport=-1200,-600,2400,1200&embedId=readme"
+  frameBorder="0"
+  scrolling="no"
+  allow="fullscreen; clipboard-read; clipboard-write"
+  allowFullScreen
+></iframe>
+```
+
+</details>
+
+---
+
 ## How It Works
 
 When a PR is opened or updated, a GitHub Action triggers the Miro MCP server with the `code_explain_on_board` prompt. This analyzes the code changes and generates an interactive architecture diagram on a Miro board. A link to the board is posted as a PR comment.
@@ -11,10 +49,12 @@ When a PR is opened or updated, a GitHub Action triggers the Miro MCP server wit
 ```
 visualize-prs-miro/
 ├── .github/workflows/miro-pr-visualizer.yml
+├── scripts/
+│   └── visualize.mjs   # Miro REST API diagram generator
 ├── src/
 │   ├── server.ts       # Main entry point
-│   ├── auth.ts         # Middleware to visualize
-│   └── routes.ts       # Component relationships
+│   ├── auth.ts         # Authentication middleware
+│   └── routes.ts       # API route definitions
 ├── README.md
 ├── package.json
 └── tsconfig.json
