@@ -6,37 +6,21 @@ A demo Node.js application that automatically generates **living architecture di
 
 ## Architecture Diagram
 
-> **Live on Miro** — [Open full board](https://miro.com/app/board/uXjVG-jtQzY=/)
+[![View Architecture Diagram on Miro](https://img.shields.io/badge/Miro-Live_Architecture_Diagram-FFD02F?style=for-the-badge&logo=miro&logoColor=050036)](https://miro.com/app/board/uXjVG-jtQzY=/)
 
-<a href="https://miro.com/app/board/uXjVG-jtQzY=/">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://miro.com/app/live-embed/uXjVG-jtQzY=/?autoplay=yep">
-    <img src="https://miro.com/app/live-embed/uXjVG-jtQzY=/?autoplay=yep" alt="Architecture Diagram on Miro" width="100%">
-  </picture>
-</a>
-
-<details>
-<summary><strong>Can't see the board? Click here for the interactive embed.</strong></summary>
-<br>
-
-To view the interactive Miro board directly, visit:
-**https://miro.com/app/board/uXjVG-jtQzY=/**
-
-Or paste this iframe into any HTML page:
+Embed this board in any HTML page using the [Miro Live Embed](https://developers.miro.com/docs/miro-live-embed-with-a-direct-link):
 
 ```html
 <iframe
   width="768"
   height="432"
-  src="https://miro.com/app/live-embed/uXjVG-jtQzY=/?moveToViewport=-1200,-600,2400,1200&embedId=readme"
+  src="https://miro.com/app/live-embed/uXjVG-jtQzY=/?autoplay=true"
   frameBorder="0"
   scrolling="no"
   allow="fullscreen; clipboard-read; clipboard-write"
   allowFullScreen
 ></iframe>
 ```
-
-</details>
 
 ---
 
